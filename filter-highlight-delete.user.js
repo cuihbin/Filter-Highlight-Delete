@@ -655,8 +655,12 @@
 
                     // ==== retrieve block data ===================================================|
                     let blockTitle, secondText, thirdText, blockHref;
-                    if (currentElementSelectors && currentElementSelectors["textSelector"]) {
-                        blockTitle = jQuery(this).find(currentElementSelectors["textSelector"]).text();
+                    if (currentElementSelectors) {
+                        if (currentElementSelectors["textSelector"]) {
+                            blockTitle = jQuery(this).find(currentElementSelectors["textSelector"]).text();
+                        } else {
+                            blockTitle = jQuery(this).text();
+                        }
                         if(blockTitle){consolelog("("+ scriptTag +") t1 ["+ blockTitle +"]", "title");}
                     }
                     if (currentElementSelectors && currentElementSelectors["secondTextSelector"]) {
